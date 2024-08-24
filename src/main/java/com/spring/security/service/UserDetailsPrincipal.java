@@ -12,7 +12,7 @@ public class UserDetailsPrincipal implements UserDetails {
 
     private MyUser myUser;
 
-    public UserDetailsPrincipal(MyUser user){
+    public UserDetailsPrincipal(MyUser user) {
         this.myUser = user;
     }
 

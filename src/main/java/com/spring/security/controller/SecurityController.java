@@ -2,7 +2,6 @@ package com.spring.security.controller;
 
 import com.spring.security.model.Student;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
