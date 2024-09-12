@@ -1,0 +1,24 @@
+name: First Github Action Workflow
+on:
+  push:
+    branches:
+      - master
+    # branches: [ "master" ]
+
+jobs:
+  check-access:
+  #build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Runs a set of commands using the runners shell
+      - name: Configure AWS credentials
+        uses: aws-action/configure-aws-credentials@v2
+        with: 
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secrete-access-key: ${{ secrets.AWS_SECRETS_ACCESS_KEY }}
+          aws-region: "us-east-1"
+      - name: Verify Aws credentials
+        run: aws sts get-caller-identity
