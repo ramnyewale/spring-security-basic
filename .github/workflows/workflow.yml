@@ -3,7 +3,8 @@ name: Deploy application to EC2 via CICD
 on:
   push:
     branches:
-      - master
+      #- master
+      - invalid-branch-to-fail-job-to-avoid-aws-cost # remove this line to make it working
 
 jobs:
 #  check-access:

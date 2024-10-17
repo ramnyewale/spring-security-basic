@@ -15,6 +15,7 @@ target/
 dbnavigator.xml
 .idea
 .gitignore
+C:\Git Repos\spring-security-basic\.idea\workspace.xml
 
 ### Eclipse ###
 .apt_generated
