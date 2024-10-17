@@ -9,12 +9,8 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
@@ -25,9 +21,10 @@ public class SpringSecurityConfig {
     @Autowired
     UserDetailsService userDetailsService;
 
+    // create a bean for SecurityFilterChain to re-use across the application
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        return httpSecurity
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request -> request.anyRequest().authenticated())
                 //.formLogin(Customizer.withDefaults())
@@ -36,6 +33,7 @@ public class SpringSecurityConfig {
                 .build();
     }
 
+    // InMemory Authentication
     /*@Bean
     public UserDetailsService userDetailsService(){
         UserDetails userDetails = User
@@ -53,6 +51,7 @@ public class SpringSecurityConfig {
         return new InMemoryUserDetailsManager(userDetails, userDetails1);
     }*/
 
+    //Authenticate the the request with the help of Authentication Provider and password encoder.
     @Bean
     AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();

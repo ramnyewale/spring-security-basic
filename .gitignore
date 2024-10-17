@@ -11,6 +11,10 @@ target/
 *.iws
 *.iml
 *.ipr
+.idea/shelf
+dbnavigator.xml
+.idea
+.gitignore
 
 ### Eclipse ###
 .apt_generated
