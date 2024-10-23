@@ -6,7 +6,7 @@ import lombok.*;
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 public class Student {
     private int id;
     private String name;

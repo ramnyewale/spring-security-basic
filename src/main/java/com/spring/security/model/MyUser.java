@@ -1,5 +1,6 @@
 package com.spring.security.model;
 
+import com.spring.security.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -19,6 +20,16 @@ public class MyUser {
     String username;
     @Column(name = "user_password")
     String password;
+    @Enumerated(value=EnumType.STRING)
+    private Role role;
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
 
     public Integer getId() {
         return id;
