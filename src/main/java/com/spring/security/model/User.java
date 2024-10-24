@@ -9,7 +9,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 @Table(name = "user")
 @AllArgsConstructor
 @NoArgsConstructor
-public class MyUser {
+public class User {
 
     @Id
     @Column(name = "user_id")
